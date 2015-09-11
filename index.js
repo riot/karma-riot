@@ -1,50 +1,53 @@
+var riot = require('riot')
+var path = require('path')
 
-var riot = require('riot');
-var path = require('path');
+/**
+ * Configure Riot Preprocessor to compile all tags
+ * @param {array} args - args
+ * @param {array} config - config
+ * @param {array} logger - logger
+ * @param {array} helper - helper
+ * @returns {function} preprocessor
+ */
+function createRiotPreprocessor(args, config, logger, helper) {
+  config = config || {}
 
-// Configure Riot Preprocessor to compile all tags
-var createRiotPreprocessor = function(args, config, logger, helper) {
-    config = config || {};
+  var log = logger.create('preprocessor.riot')
+  var options = helper.merge(args.options || {}, config.options || {})
 
-    var log = logger.create('preprocessor.riot'),
-        options = helper.merge( args.options || {}, config.options || {});
+  return function(content, file, done) {
+    var result = null
+    log.debug('Processing "%s".', file.originalPath)
+    if (!/\.js$/.test(file.path)) file.path = file.path + '.js'
+    try {
+      result = riot.compile(content, options)
+    } catch (e) {
+      log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line)
+      return done(e, null)
+    }
+    done(null, result)
+  }
+}
+createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', 'helper']
 
-    return function(content, file, done) {
-        var result = null;
+/**
+ * Configure Riot framework to be included in the DOM during testing
+ * @param {array} files - reference to config.files
+ */
+function initRiot(files) {
+  var riotPath = path.dirname(require.resolve('riot')) // lib/server/index.js
+  var pattern = {
+    pattern:  riotPath + '/../../riot.js',
+    included: true,
+    served:   true,
+    watched:  false
+  }
+  files.unshift(pattern)
+}
+initRiot.$inject = ['config.files']
 
-        log.debug('Processing "%s".', file.originalPath);
-
-        file.path = file.path.replace(/\.tag$/, '.js');
-
-        try {
-            result = riot.compile(content, options);
-        } catch (e) {
-            log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line);
-            return done(e, null);
-        }
-
-        done(null, result);
-    };
-};
-
-createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', 'helper'];
-
-
-// Configure Riot framework to be included in the DOM during testing
-var createPattern = function(path) {
-    return {pattern: path, included: true, served: true, watched: false};
-};
-
-var initRiot = function(files) {
-    var jasminePath = path.dirname(require.resolve('riot'));
-    files.unshift(createPattern(jasminePath + '/../riot.js'));
-};
-
-initRiot.$inject = ['config.files'];
-
-
-// Publish Modules
+/** Publish modules **/
 module.exports = {
-    'framework:riot': ['factory', initRiot],
-    'preprocessor:riot': ['factory', createRiotPreprocessor]
-};
+  'framework:riot': ['factory', initRiot],
+  'preprocessor:riot': ['factory', createRiotPreprocessor]
+}
