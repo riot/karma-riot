@@ -1,8 +1,11 @@
 {
   "name": "karma-riot",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A Karma plugin. Compile and test HTML and JS in Riot tag files.",
   "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/riot/karma-riot"
@@ -10,6 +13,7 @@
   "keywords": [
     "karma-plugin",
     "karma-preprocessor",
+    "karma-framework",
     "riot"
   ],
   "author": {
@@ -18,7 +22,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "karma": "^0.12.19",
-    "riot": "^2.0.7"
+    "expect.js": "^0.3.1",
+    "karma": "^0.13.9",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "riot": "^2.2.4"
   }
 }
