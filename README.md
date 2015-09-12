@@ -53,7 +53,7 @@ module.exports = function(config) {
 }
 ```
 
-See [our example](https://github.com/riot/examples/karma-mocha) for Mocha spec config.
+See [our example](./test/specs.js) for Mocha spec config.
 
 ----
 
