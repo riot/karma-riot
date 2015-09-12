@@ -53,6 +53,18 @@ module.exports = function(config) {
 }
 ```
 
+## Options
+
+```js
+riotPreprocessor: {
+  options: {
+    type: 'es6'
+  }
+}
+```
+
+[Read the docs](http://riotjs.com/guide/compiler/#pre-processors) for more info on available options.
+
 See [our example](./test/specs.js) for Mocha spec config.
 
 ----
