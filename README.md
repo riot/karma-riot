@@ -19,8 +19,8 @@ Your `package.json` will be like this:
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
-    "karma-riot": "^1.0.0",
-    "riot": "^2.2.4"
+    "karma-riot": "^1.0.1",
+    "riot": "^2.3.1"
   }
 }
 ```
