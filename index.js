@@ -36,13 +36,18 @@ createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', '
  */
 function initRiot(files) {
   var riotPath = path.dirname(require.resolve('riot')) // lib/server/index.js
-  var pattern = {
+  files.unshift({
     pattern:  riotPath + '/../../riot.js',
     included: true,
     served:   true,
     watched:  false
-  }
-  files.unshift(pattern)
+  })
+  files.unshift({
+    pattern:  __dirname + '/polyfill.js',
+    included: true,
+    served:   true,
+    watched:  false
+  })
 }
 initRiot.$inject = ['config.files']
 
