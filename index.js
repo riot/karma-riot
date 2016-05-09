@@ -43,7 +43,7 @@ function initRiot(files) {
     watched: false
   })
   files.unshift({
-    pattern: path.resolve() + '/polyfill.js',
+    pattern: path.resolve('.') + '/polyfill.js',
     included: true,
     served: true,
     watched: false
