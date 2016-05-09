@@ -20,7 +20,7 @@ function createRiotPreprocessor(args, config, logger, helper) {
     log.debug('Processing "%s".', file.originalPath)
     if (!/\.js$/.test(file.path)) file.path = file.path + '.js'
     try {
-      result = riot.compile(content, options)
+      result = riot.compile(content, options, file.originalPath)
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line)
       return done(e, null)
@@ -37,16 +37,16 @@ createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', '
 function initRiot(files) {
   var riotPath = path.dirname(require.resolve('riot')) // lib/server/index.js
   files.unshift({
-    pattern:  riotPath + '/../../riot.js',
+    pattern: riotPath + '/../../riot.js',
     included: true,
-    served:   true,
-    watched:  false
+    served: true,
+    watched: false
   })
   files.unshift({
-    pattern:  __dirname + '/polyfill.js',
+    pattern: path.resolve() + '/polyfill.js',
     included: true,
-    served:   true,
-    watched:  false
+    served: true,
+    watched: false
   })
 }
 initRiot.$inject = ['config.files']

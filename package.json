@@ -1,6 +1,6 @@
 {
   "name": "karma-riot",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Karma plugin. Compile and test HTML and JS in Riot tag files.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/riot/karma-riot"
+    "url": "git+https://github.com/riot/karma-riot.git"
   },
   "keywords": [
     "karma-plugin",
@@ -16,17 +16,25 @@
     "karma-framework",
     "riot"
   ],
-  "author": {
-    "name": "Thomas Kelly",
-    "email": "mail@thomaskelly.ca"
-  },
+  "author": "Thomas Kelly <mail@thomaskelly.ca>",
   "license": "MIT",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "karma": "^0.13.15",
-    "karma-mocha": "^0.2.0",
-    "karma-mocha-reporter": "^1.1.1",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "riot": "^2.3.1"
+    "karma": "^0.13.22",
+    "karma-mocha": "^1.0.1",
+    "karma-mocha-reporter": "^2.0.3",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7"
+  },
+  "bugs": {
+    "url": "https://github.com/riot/karma-riot/issues"
+  },
+  "homepage": "https://github.com/riot/karma-riot#readme",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "riot": "^2.4.0"
   }
 }
