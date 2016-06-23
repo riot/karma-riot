@@ -20,7 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "karma": "^0.13.22",
+    "karma": "^1.0.0",
     "karma-mocha": "^1.0.1",
     "karma-mocha-reporter": "^2.0.3",
     "karma-phantomjs-launcher": "^1.0.0",
