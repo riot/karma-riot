@@ -20,7 +20,7 @@ function createRiotPreprocessor(args, config, logger, helper) {
     log.debug('Processing "%s".', file.originalPath)
     if (!/\.js$/.test(file.path)) file.path = file.path + '.js'
     try {
-      result = riot.compile(content, options, file.originalPath)
+      result = riot.compile(content.replace(/^\uFEFF/g/* strips BOM */, ''), options, file.originalPath)
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line)
       return done(e, null)
