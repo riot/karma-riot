@@ -35,6 +35,6 @@
     "test": "test"
   },
   "dependencies": {
-    "riot": "^2.4.0"
+    "riot": "^2.6.5"
   }
 }
