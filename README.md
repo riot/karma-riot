@@ -15,12 +15,12 @@ Your `package.json` will be like this:
 ```json
 {
   "devDependencies": {
-    "karma": "^0.13.9",
-    "karma-mocha": "^0.2.0",
-    "karma-mocha-reporter": "^1.1.1",
-    "karma-phantomjs-launcher": "^0.2.1",
-    "karma-riot": "^1.0.1",
-    "riot": "^2.3.1"
+    "karma": "^1.3.0",
+    "karma-mocha": "1.3.0",
+    "karma-mocha-reporter": "^2.2.1",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-riot": "^2.0.0",
+    "riot": "^3.0.0"
   }
 }
 ```
