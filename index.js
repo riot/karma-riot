@@ -1,6 +1,8 @@
-var riot = require('riot')
-var path = require('path')
-var compile = riot.compile
+'use strict'
+
+const riot = require('riot')
+const path = require('path')
+const compile = riot.compile
 
 /**
  * Configure Riot Preprocessor to compile all tags
@@ -13,11 +15,11 @@ var compile = riot.compile
 function createRiotPreprocessor(args, config, logger, helper) {
   config = config || {}
 
-  var log = logger.create('preprocessor.riot')
-  var options = helper.merge(args.options || {}, config.options || {})
+  const log = logger.create('preprocessor.riot')
+  const options = helper.merge(args.options || {}, config.options || {})
 
   return function(content, file, done) {
-    var result = null
+    let result = null
     log.debug('Processing "%s".', file.originalPath)
     if (!/\.js$/.test(file.path)) file.path = file.path + '.js'
     try {
@@ -36,8 +38,8 @@ createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', '
  * @param {array} files - reference to config.files
  */
 function initRiot(files) {
-  var riotForServer = require.resolve('riot') // lib/server/index.js
-  var riotForClient = path.join(path.dirname(riotForServer), '../../riot.js')
+  const riotForServer = require.resolve('riot') // lib/server/index.js
+  const riotForClient = path.join(path.dirname(riotForServer), '../../riot.js')
   files.unshift({
     pattern: riotForClient,
     included: true,
