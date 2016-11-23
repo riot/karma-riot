@@ -1,5 +1,6 @@
 var riot = require('riot')
 var path = require('path')
+var compile = riot.compile
 
 /**
  * Configure Riot Preprocessor to compile all tags
@@ -20,7 +21,7 @@ function createRiotPreprocessor(args, config, logger, helper) {
     log.debug('Processing "%s".', file.originalPath)
     if (!/\.js$/.test(file.path)) file.path = file.path + '.js'
     try {
-      result = riot.compile(content, options, file.originalPath)
+      result = compile(content, options, file.originalPath)
     } catch (e) {
       log.error('%s\n  at %s:%d', e.message, file.originalPath, e.location.first_line)
       return done(e, null)
@@ -35,15 +36,10 @@ createRiotPreprocessor.$inject = ['args', 'config.riotPreprocessor', 'logger', '
  * @param {array} files - reference to config.files
  */
 function initRiot(files) {
-  var riotPath = path.dirname(require.resolve('riot')) // lib/server/index.js
+  var riotForServer = require.resolve('riot') // lib/server/index.js
+  var riotForClient = path.join(path.dirname(riotForServer), '../../riot.js')
   files.unshift({
-    pattern: riotPath + '/../../riot.js',
-    included: true,
-    served: true,
-    watched: false
-  })
-  files.unshift({
-    pattern: path.resolve('.') + '/polyfill.js',
+    pattern: riotForClient,
     included: true,
     served: true,
     watched: false
