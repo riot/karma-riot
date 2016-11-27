@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/riot/karma-riot.svg?branch=master&style=flat-square)](https://travis-ci.org/riot/karma-riot)
+
 # karma-riot
 
 [karma-riot](https://github.com/riot/karma-riot) is a [Riot](https://riotjs.org) integration for [Karma](https://karma-runner.github.io) that handles tag modules with ease.
