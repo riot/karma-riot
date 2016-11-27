@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/riot/karma-riot.svg?branch=master&style=flat-square)](https://travis-ci.org/riot/karma-riot)
+[![Build Status](https://img.shields.io/travis/riot/karma-riot/master.svg?style=flat-square)](https://travis-ci.org/riot/karma-riot)
 
 # karma-riot
 
