@@ -2,6 +2,8 @@
 
 # karma-riot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/riot/karma-riot.svg)](https://greenkeeper.io/)
+
 [karma-riot](https://github.com/riot/karma-riot) is a [Riot](https://riotjs.org) integration for [Karma](https://karma-runner.github.io) that handles tag modules with ease.
 
 ## Installation
