@@ -19,7 +19,7 @@
   "author": "Thomas Kelly <mail@thomaskelly.ca>",
   "license": "MIT",
   "dependencies": {
-    "riot": "^3.0.0"
+    "riot": "^3.5.1"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
