@@ -65,7 +65,7 @@ riotPreprocessor: {
 }
 ```
 
-[Read the docs](http://riotjs.com/guide/compiler/#pre-processors) for more info on available options.
+[Read the docs](http://riot.js.org/guide/compiler/#pre-processors) for more info on available options.
 
 See [our example](./test/specs.js) for Mocha spec config.
 
