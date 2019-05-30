@@ -1,5 +1,7 @@
 [![Build Status](https://img.shields.io/travis/riot/karma-riot/master.svg?style=flat-square)](https://travis-ci.org/riot/karma-riot)
 
+**Note:** if you are working with Riot.js 4 this plugin is no longer needed. Please check [this example](https://github.com/riot/examples/tree/gh-pages/timer) to see how Riot.js components can be tested directly in node.
+
 # karma-riot
 
 [karma-riot](https://github.com/riot/karma-riot) is a [Riot](https://riot.js.org) integration for [Karma](https://karma-runner.github.io) that handles tag modules with ease.
